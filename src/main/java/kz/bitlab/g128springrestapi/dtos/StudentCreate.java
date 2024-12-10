@@ -1,6 +1,5 @@
 package kz.bitlab.g128springrestapi.dtos;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,12 +9,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class StudentDto {
+public class StudentCreate {
 
-    private Long id;
-    private String fullName;
+    private String name;
     private String email;
+    private String password;
+    private String rePassword;
     private Integer age;
     private Integer exam;
-    private String mark;
 }

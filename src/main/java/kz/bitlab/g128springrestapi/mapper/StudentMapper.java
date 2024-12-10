@@ -1,6 +1,8 @@
 package kz.bitlab.g128springrestapi.mapper;
 
-import kz.bitlab.g128springrestapi.dtos.StudentDto;
+import kz.bitlab.g128springrestapi.dtos.StudentCreate;
+import kz.bitlab.g128springrestapi.dtos.StudentEdit;
+import kz.bitlab.g128springrestapi.dtos.StudentView;
 import kz.bitlab.g128springrestapi.entity.Student;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -13,9 +15,11 @@ public interface StudentMapper {
 
     StudentMapper INSTANCE = Mappers.getMapper(StudentMapper.class);
 
-    List<StudentDto> toDtoList(List<Student> entities);
+    List<StudentView> toDtoList(List<Student> entities);
 
     @Mapping(target = "fullName", source = "name")
-    StudentDto toDto(Student entity);
+    StudentView toDto(Student entity);
 
+    Student toEntity(StudentCreate dto);
+    Student toEntity(StudentEdit dto);
 }
