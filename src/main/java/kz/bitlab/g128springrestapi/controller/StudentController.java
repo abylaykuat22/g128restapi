@@ -6,9 +6,11 @@ import kz.bitlab.g128springrestapi.dtos.StudentView;
 import kz.bitlab.g128springrestapi.entity.Student;
 import kz.bitlab.g128springrestapi.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/students")
@@ -23,13 +25,22 @@ public class StudentController {
     }
 
     @GetMapping("{id}")
-    public StudentView getStudent(@PathVariable Long id) {
-        return studentService.getStudentById(id);
+    public ResponseEntity<StudentView> getStudent(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(studentService.getStudentById(id));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
-    public void createStudent(@RequestBody StudentCreate studentCreate) {
-        studentService.create(studentCreate);
+    public ResponseEntity<Object> createStudent(@RequestBody StudentCreate studentCreate) {
+        try {
+            studentService.create(studentCreate);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Неверные данные, повторите попытку!");
+        }
     }
 
     @PutMapping
