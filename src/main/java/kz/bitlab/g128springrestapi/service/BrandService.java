@@ -30,6 +30,7 @@ public class BrandService {
         if (isAlreadyExist) {
             return;
         }
+
         brandRepository.save(brand);
     }
 
@@ -37,6 +38,7 @@ public class BrandService {
         if (brand == null) {
             return;
         }
+
         boolean isAlreadyExist = brandRepository.findByCode(brand.getCode()).isPresent();
         if (isAlreadyExist) {
             return;
@@ -45,6 +47,7 @@ public class BrandService {
     }
 
     public void deleteBrandById(Long id) {
+
         brandRepository.deleteById(id);
     }
 }
