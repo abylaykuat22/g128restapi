@@ -58,6 +58,7 @@ public class StudentService {
 
     public void saveStudent(Student student) {
         Integer exam = student.getExam();
+
         if (exam != null) {
             if (exam >= 90) {
                 student.setMark("A");
@@ -71,6 +72,7 @@ public class StudentService {
                 throw new IllegalArgumentException("Invalid exam");
             }
         }
+
         studentRepository.save(student);
     }
 
@@ -79,6 +81,7 @@ public class StudentService {
     }
 
     public List<StudentView> findAllByExam(Integer exam) {
+
         List<Student> students = studentRepository.findAllByExamGreaterThanEqual(exam);
         return StudentMapper.INSTANCE.toDtoList(students);
     }

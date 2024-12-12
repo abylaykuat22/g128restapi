@@ -56,6 +56,7 @@ public class StudentController {
     @GetMapping("/find-by-exam")
     public List<StudentView> findStudents(@RequestParam Integer exam) {
         return studentService.findAllByExam(exam);
+
     }
 
     @GetMapping("/find-by-age-between")
