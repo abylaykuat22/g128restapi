@@ -25,6 +25,7 @@ public class BrandService {
         if (brand == null) {
             return;
         }
+
         boolean isAlreadyExist = brandRepository.findByCode(brand.getCode()).isPresent();
         if (isAlreadyExist) {
             return;
