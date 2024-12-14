@@ -24,4 +24,7 @@ public class Brand {
 
     @Column(name = "CODE", nullable = false, unique = true)
     private String code;
+
+    @Column(name = "DESCRIPTION")
+    private String description;
 }

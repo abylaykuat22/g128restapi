@@ -13,8 +13,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     List<Student> findAllByExamGreaterThanEqual(Integer exam);
 
-    List<Student> findAllByAgeBetween(Integer minAge, Integer maxAge);
-
     Optional<Student> findByEmail(String email);
 
 }

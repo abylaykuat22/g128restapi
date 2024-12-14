@@ -86,9 +86,5 @@ public class StudentService {
         return StudentMapper.INSTANCE.toDtoList(students);
     }
 
-    public List<StudentView> findAllByAgeBetween(Integer minAge, Integer maxAge) {
-        List<Student> students = studentRepository.findAllByAgeBetween(minAge, maxAge);
-        return StudentMapper.INSTANCE.toDtoList(students);
-    }
 
 }
