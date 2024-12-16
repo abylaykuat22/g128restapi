@@ -28,9 +28,6 @@ public class Student {
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
-    @Column(name = "AGE")
-    private Integer age;
-
     @Column(name = "EXAM")
     private Integer exam;
 
